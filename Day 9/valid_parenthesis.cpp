@@ -13,8 +13,10 @@ public:
         {
             if (s[i] == '(' || s[i] == '{' || s[i] == '[')
                 temp.push(s[i]);
+
             else if (temp.empty())
                 return false;
+
             else if (s[i] == '}')
             {
                 if (temp.top() == '{')
@@ -22,6 +24,7 @@ public:
                 else
                     return false;
             }
+
             else if (s[i] == ']')
             {
                 if (temp.top() == '[')
@@ -29,6 +32,7 @@ public:
                 else
                     return false;
             }
+
             else if (s[i] == ')')
             {
                 if (temp.top() == '(')
@@ -36,13 +40,12 @@ public:
                 else
                     return false;
             }
+
             else
                 return false;
             i++;
         }
-        if (temp.empty())
-            return true;
-        else
-            return false;
+
+        return temp.empty();
     }
 };
